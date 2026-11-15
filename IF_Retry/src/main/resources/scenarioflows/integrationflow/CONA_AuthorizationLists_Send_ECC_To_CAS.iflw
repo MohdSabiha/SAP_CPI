@@ -90,7 +90,7 @@
                 </ifl:property>
             </bpmn2:extensionElements>
         </bpmn2:participant>
-        <bpmn2:participant id="Participant_9319654" ifl:type="EndpointRecevier" name="DLQ_1">
+        <bpmn2:participant id="Participant_9319654" ifl:type="EndpointRecevier" name="DLQ_SS">
             <bpmn2:extensionElements>
                 <ifl:property>
                     <key>ifl:type</key>

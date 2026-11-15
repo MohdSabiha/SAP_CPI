@@ -104,328 +104,6 @@
         <bpmn2:participant id="Participant_Process_9319597" ifl:type="IntegrationProcess" name="Retry_Configuartion" processRef="Process_9319597">
             <bpmn2:extensionElements/>
         </bpmn2:participant>
-        <bpmn2:messageFlow id="MessageFlow_9319664" name="Mail" sourceRef="ServiceTask_9319662" targetRef="Participant_9319652">
-            <bpmn2:extensionElements>
-                <ifl:property>
-                    <key>server</key>
-                    <value>{{Mail_Address}}</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>Description</key>
-                    <value/>
-                </ifl:property>
-                <ifl:property>
-                    <key>bcc</key>
-                    <value>{{Mail_Bcc}}</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>attachments</key>
-                    <value/>
-                </ifl:property>
-                <ifl:property>
-                    <key>auth</key>
-                    <value>{{Mail_Authentication}}</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>subject</key>
-                    <value>{{Mail_Subject}}</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>encrypt.smime.aes.keysize</key>
-                    <value>128</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>ComponentNS</key>
-                    <value>com.sap.it.ide.mail.ui.namespace2</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>keep_attachments</key>
-                    <value>0</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>body</key>
-                    <value>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;style&gt;
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 13px;
-            color: #333333;
-            margin: 0;
-            padding: 20px;
-            background-color: #ffffff;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .title {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: #222222;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            table-layout: fixed;
-        }
-
-        th {
-            background-color: #5b5b5b;
-            color: #ffffff;
-            padding: 10px;
-            border: 1px solid #444444;
-            text-align: left;
-            font-weight: bold;
-        }
-
-        td {
-            padding: 10px;
-            border: 1px solid #cccccc;
-            vertical-align: top;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
-
-        .field {
-            width: 25%;
-            font-weight: bold;
-            background-color: #f2f2f2;
-        }
-
-        .value {
-            width: 75%;
-        }
-
-        .error {
-            color: #c00000;
-            font-weight: bold;
-        }
-
-        .footer {
-            margin-top: 15px;
-            font-size: 11px;
-            color: #777777;
-        }
-    &lt;/style&gt;
-&lt;/head&gt;
-
-&lt;body&gt;
-    &lt;div class="container"&gt;
-
-        &lt;div class="title"&gt;
-            SAP CPI Integration Failure - action required
-        &lt;/div&gt;
-
-        &lt;table&gt;
-            &lt;tr&gt;
-                &lt;th&gt;Field&lt;/th&gt;
-                &lt;th&gt;Details&lt;/th&gt;
-            &lt;/tr&gt;
-
-            &lt;tr&gt;
-                &lt;td class="field"&gt;Package Name&lt;/td&gt;
-                &lt;td class="value"&gt;
-                     ${header.PackageName}
-                &lt;/td&gt;
-            &lt;/tr&gt;
-
-            &lt;tr&gt;
-                &lt;td class="field"&gt;IFlow Name&lt;/td&gt;
-                &lt;td class="value"&gt;
-                    ${header.Iflow_Name}
-                &lt;/td&gt;
-            &lt;/tr&gt;
-
-            &lt;tr&gt;
-                &lt;td class="field"&gt;Message ID&lt;/td&gt;
-                &lt;td class="value"&gt;
-                    ${header.SAP_MessageProcessingLogID}
-                &lt;/td&gt;
-            &lt;/tr&gt;
-
-            &lt;tr&gt;
-                &lt;td class="field"&gt;Correlation ID&lt;/td&gt;
-                &lt;td class="value"&gt;
-                    ${header.SAP_MplCorrelationId}
-                &lt;/td&gt;
-            &lt;/tr&gt;
-
-            &lt;tr&gt;
-                &lt;td class="field"&gt;Error Message&lt;/td&gt;
-                &lt;td class="value error"&gt;
-                     ${header.Exception}
-                &lt;/td&gt;
-            &lt;/tr&gt;
-
-            &lt;tr&gt;
-    &lt;td class="field"&gt;Message URL&lt;/td&gt;
-    &lt;td class="value"&gt;
-        &lt;a href="https://luxasia-btpis-npr-cf-ap11-91b5ndna.integrationsuite.cfapps.ap11.hana.ondemand.com/shell/monitoring/Messages/%7B%22edge%22%3A%7B%22runtimeLocationId%22%3A%22cloudintegration%22%7D%2C%22identifier%22%3A%22${header.SAP_MplCorrelationId}%22%7D"
-           target="_blank"&gt;
-            Open CPI Error Message
-        &lt;/a&gt;
-    &lt;/td&gt;
-&lt;/tr&gt;
-        &lt;/table&gt;
-
-        &lt;div class="footer"&gt;
-            This is an automated report generated from SAP Cloud Integration.
-        &lt;/div&gt;
-
-    &lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>ssl</key>
-                    <value>{{Mail_Protection}}</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>timeout</key>
-                    <value>{{Mail_Timeout (in ms)}}</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>Name</key>
-                    <value>Mail</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>TransportProtocolVersion</key>
-                    <value>1.0</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>ComponentSWCVName</key>
-                    <value>com.sap.it.ide.mail.ui.archive2</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>proxyPort</key>
-                    <value>8080</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>encrypt.smime.des.keysize</key>
-                    <value>128</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>content_type</key>
-                    <value>{{Mail_Body Mime-Type}}</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>locationId</key>
-                    <value/>
-                </ifl:property>
-                <ifl:property>
-                    <key>encrypt.smime.algorithm</key>
-                    <value>aes</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>signature.smime.table</key>
-                    <value/>
-                </ifl:property>
-                <ifl:property>
-                    <key>from</key>
-                    <value>{{Mail_From}}</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>MessageProtocol</key>
-                    <value>None</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>ComponentSWCVId</key>
-                    <value>com.sap.it.ide.mail.ui.archive2</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>direction</key>
-                    <value>Receiver</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>cc</key>
-                    <value>{{Mail_Cc}}</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>attachmentTransferEncoding</key>
-                    <value>auto</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>encrypt.smime.aes.gcm.keysize</key>
-                    <value>128</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>ComponentType</key>
-                    <value>Mail</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>proxyProtocol</key>
-                    <value>socks5</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>content_encoding</key>
-                    <value>{{Mail_Body Encoding}}</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>proxyType</key>
-                    <value>{{Mail_Proxy Type}}</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>proxyAlias</key>
-                    <value/>
-                </ifl:property>
-                <ifl:property>
-                    <key>componentVersion</key>
-                    <value>1.13</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>proxyHost</key>
-                    <value/>
-                </ifl:property>
-                <ifl:property>
-                    <key>system</key>
-                    <value>R-EmailAlert</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>signature.smime.clearText</key>
-                    <value>1</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>encrypt.type</key>
-                    <value>none</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>TransportProtocol</key>
-                    <value>SMTP</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>tokenCredential</key>
-                    <value/>
-                </ifl:property>
-                <ifl:property>
-                    <key>to</key>
-                    <value>{{Mail_To}}</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>encrypt.smime.keys</key>
-                    <value/>
-                </ifl:property>
-                <ifl:property>
-                    <key>cmdVariantUri</key>
-                    <value>ctype::AdapterVariant/cname::sap:Mail/tp::SMTP/mp::None/direction::Receiver/version::1.13.0</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>user</key>
-                    <value>{{Mail_Credential Name}}</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>MessageProtocolVersion</key>
-                    <value>1.0</value>
-                </ifl:property>
-            </bpmn2:extensionElements>
-        </bpmn2:messageFlow>
         <bpmn2:messageFlow id="MessageFlow_9319655" name="JMS" sourceRef="ServiceTask_9319646" targetRef="Participant_9319654">
             <bpmn2:extensionElements>
                 <ifl:property>
@@ -847,7 +525,7 @@
                     <value>EndEvent</value>
                 </ifl:property>
             </bpmn2:extensionElements>
-            <bpmn2:incoming>SequenceFlow_9319665</bpmn2:incoming>
+            <bpmn2:incoming>SequenceFlow_9319666</bpmn2:incoming>
         </bpmn2:endEvent>
         <bpmn2:serviceTask id="ServiceTask_9319646" name="Send_TO_DLQ">
             <bpmn2:extensionElements>
@@ -866,24 +544,6 @@
             </bpmn2:extensionElements>
             <bpmn2:incoming>SequenceFlow_9319640</bpmn2:incoming>
             <bpmn2:outgoing>SequenceFlow_9319666</bpmn2:outgoing>
-        </bpmn2:serviceTask>
-        <bpmn2:serviceTask id="ServiceTask_9319662" name="Send_To_Mail">
-            <bpmn2:extensionElements>
-                <ifl:property>
-                    <key>componentVersion</key>
-                    <value>1.0</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>activityType</key>
-                    <value>Send</value>
-                </ifl:property>
-                <ifl:property>
-                    <key>cmdVariantUri</key>
-                    <value>ctype::FlowstepVariant/cname::Send/version::1.0.4</value>
-                </ifl:property>
-            </bpmn2:extensionElements>
-            <bpmn2:incoming>SequenceFlow_9319666</bpmn2:incoming>
-            <bpmn2:outgoing>SequenceFlow_9319665</bpmn2:outgoing>
         </bpmn2:serviceTask>
         <bpmn2:exclusiveGateway default="SequenceFlow_9319604" id="ExclusiveGateway_9319601" name="Retry">
             <bpmn2:extensionElements>
@@ -921,8 +581,7 @@
             </bpmn2:extensionElements>
             <bpmn2:outgoing>SequenceFlow_9319600</bpmn2:outgoing>
         </bpmn2:startEvent>
-        <bpmn2:sequenceFlow id="SequenceFlow_9319666" sourceRef="ServiceTask_9319646" targetRef="ServiceTask_9319662"/>
-        <bpmn2:sequenceFlow id="SequenceFlow_9319665" sourceRef="ServiceTask_9319662" targetRef="EndEvent_9319641"/>
+        <bpmn2:sequenceFlow id="SequenceFlow_9319666" sourceRef="ServiceTask_9319646" targetRef="EndEvent_9319641"/>
         <bpmn2:sequenceFlow id="SequenceFlow_9319640" name="Route 3" sourceRef="ExclusiveGateway_9319601" targetRef="ServiceTask_9319646">
             <bpmn2:extensionElements>
                 <ifl:property>
@@ -938,7 +597,7 @@
                     <value>ctype::FlowstepVariant/cname::GatewayRoute/version::1.0.0</value>
                 </ifl:property>
             </bpmn2:extensionElements>
-            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_9319640_1794571648665" xsi:type="bpmn2:tFormalExpression">${header.SAPJMSRetries} &gt; '1'</bpmn2:conditionExpression>
+            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_9319640_1794759453986" xsi:type="bpmn2:tFormalExpression">${header.SAPJMSRetries} &gt; '1'</bpmn2:conditionExpression>
         </bpmn2:sequenceFlow>
         <bpmn2:sequenceFlow id="SequenceFlow_9319604" name="Route 2" sourceRef="ExclusiveGateway_9319601" targetRef="EndEvent_9319603">
             <bpmn2:extensionElements>
@@ -974,9 +633,6 @@
             </bpmndi:BPMNShape>
             <bpmndi:BPMNShape bpmnElement="Participant_9319652" id="BPMNShape_Participant_9319652">
                 <dc:Bounds height="140.0" width="100.0" x="1455.0" y="-141.0"/>
-            </bpmndi:BPMNShape>
-            <bpmndi:BPMNShape bpmnElement="ServiceTask_9319662" id="BPMNShape_ServiceTask_9319662">
-                <dc:Bounds height="60.0" width="100.0" x="1455.0" y="-328.0"/>
             </bpmndi:BPMNShape>
             <bpmndi:BPMNShape bpmnElement="SubProcess_9319588" id="BPMNShape_SubProcess_9319588">
                 <dc:Bounds height="140.0" width="429.0" x="186.0" y="-288.0"/>
@@ -1030,27 +686,19 @@
                 <di:waypoint x="1235.0" xsi:type="dc:Point" y="-298.0"/>
                 <di:waypoint x="1295.0" xsi:type="dc:Point" y="-298.0"/>
             </bpmndi:BPMNEdge>
-            <bpmndi:BPMNEdge bpmnElement="SequenceFlow_9319665" id="BPMNEdge_SequenceFlow_9319665" sourceElement="BPMNShape_ServiceTask_9319662" targetElement="BPMNShape_EndEvent_9319641">
-                <di:waypoint x="1555.0" xsi:type="dc:Point" y="-298.0"/>
-                <di:waypoint x="1615.0" xsi:type="dc:Point" y="-298.0"/>
-            </bpmndi:BPMNEdge>
             <bpmndi:BPMNEdge bpmnElement="SequenceFlow_9319600" id="BPMNEdge_SequenceFlow_9319600" sourceElement="BPMNShape_StartEvent_9319598" targetElement="BPMNShape_ExclusiveGateway_9319601">
                 <di:waypoint x="1135.0" xsi:type="dc:Point" y="-298.0"/>
                 <di:waypoint x="1195.0" xsi:type="dc:Point" y="-298.0"/>
             </bpmndi:BPMNEdge>
-            <bpmndi:BPMNEdge bpmnElement="SequenceFlow_9319666" id="BPMNEdge_SequenceFlow_9319666" sourceElement="BPMNShape_ServiceTask_9319646" targetElement="BPMNShape_ServiceTask_9319662">
-                <di:waypoint x="1395.0" xsi:type="dc:Point" y="-298.0"/>
-                <di:waypoint x="1455.0" xsi:type="dc:Point" y="-298.0"/>
+            <bpmndi:BPMNEdge bpmnElement="SequenceFlow_9319666" id="BPMNEdge_SequenceFlow_9319666" sourceElement="BPMNShape_ServiceTask_9319646" targetElement="BPMNShape_EndEvent_9319641">
+                <di:waypoint x="1345.0" xsi:type="dc:Point" y="-298.0"/>
+                <di:waypoint x="1631.0" xsi:type="dc:Point" y="-298.0"/>
             </bpmndi:BPMNEdge>
             <bpmndi:BPMNEdge bpmnElement="SequenceFlow_9319604" id="BPMNEdge_SequenceFlow_9319604" sourceElement="BPMNShape_ExclusiveGateway_9319601" targetElement="BPMNShape_EndEvent_9319603">
                 <di:waypoint x="1235.0" xsi:type="dc:Point" y="-298.0"/>
                 <di:waypoint x="1245.0" xsi:type="dc:Point" y="-298.0"/>
                 <di:waypoint x="1245.0" xsi:type="dc:Point" y="-364.0"/>
                 <di:waypoint x="1295.0" xsi:type="dc:Point" y="-364.0"/>
-            </bpmndi:BPMNEdge>
-            <bpmndi:BPMNEdge bpmnElement="MessageFlow_9319664" id="BPMNEdge_MessageFlow_9319664" sourceElement="BPMNShape_ServiceTask_9319662" targetElement="BPMNShape_Participant_9319652">
-                <di:waypoint x="1505.0" xsi:type="dc:Point" y="-298.0"/>
-                <di:waypoint x="1505.0" xsi:type="dc:Point" y="-71.0"/>
             </bpmndi:BPMNEdge>
             <bpmndi:BPMNEdge bpmnElement="MessageFlow_9319655" id="BPMNEdge_MessageFlow_9319655" sourceElement="BPMNShape_ServiceTask_9319646" targetElement="BPMNShape_Participant_9319654">
                 <di:waypoint x="1345.0" xsi:type="dc:Point" y="-298.0"/>
